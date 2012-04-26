@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta http-equiv="content-script-type" content="text/javascript">
+<title>CrappyNet Console</title>
+<link rel="stylesheet" type="text/css" href="admin_console.css?source=admin_console_css" />
+</head>
+<body>
+<script type="text/javascript" src="jquery-1.7.1.min.js?source=jquery"></script>
+<div id="settings" style="display:block;">
+    [<a href="javascript:void 0" onclick="hide_settings()" style="text-decoration:none;">hide settings</a>]
+    Enter 0 to turn feature off :<br/>
+    <form action="/" method="POST" enctype="text/plain">
+        <label>host : <input type="text" name="host" value="$$$host$$$" size="30"/>  </label> which host all requests will redirect to<br/>
+        <label>port : <input type="text" name="port" value="$$$port$$$" size="5"/>  </label> which port on that host<br/>
+        <label>download_mbps_min : <input type="text" name="download_mbps_min" value="$$$download_mbps_min$$$" size="5"/>  </label> minimum download speed in mbit/s, edge = 1.6, more <a href="http://en.wikipedia.org/wiki/Comparison_of_wireless_data_standards" target="cowds">here</a><br/>
+        <label>download_mbps_max : <input type="text" name="download_mbps_max" value="$$$download_mbps_max$$$" size="5"/>  </label> maximum download speed in mbit/s, edge = 1.6, more <a href="http://en.wikipedia.org/wiki/Comparison_of_wireless_data_standards" target="cowds">here</a><br/>
+        <label>upload_mbps_min : <input type="text" name="upload_mbps_min" value="$$$upload_mbps_min$$$" size="5"/>  </label> minimum upload speed in mbit/s, edge = 0.5, more <a href="http://en.wikipedia.org/wiki/Comparison_of_wireless_data_standards" target="cowds">here</a><br/>
+        <label>upload_mbps_max : <input type="text" name="upload_mbps_max" value="$$$upload_mbps_max$$$" size="5"/>  </label> maximum upload speed in mbit/s, edge = 0.5, more <a href="http://en.wikipedia.org/wiki/Comparison_of_wireless_data_standards" target="cowds">here</a><br/>
+        <label>download_firstbyte_min : <input type="text" name="download_firstbyte_min" value="$$$download_firstbyte_min$$$" size="5"/>  </label> how many milliseconds (minimum) delay before first byte downloaded<br/>
+        <label>download_firstbyte_max : <input type="text" name="download_firstbyte_max" value="$$$download_firstbyte_max$$$" size="5"/>  </label> how many milliseconds (mamimum) delay before first byte downloaded<br/>
+        <label>upload_firstbyte_min : <input type="text" name="upload_firstbyte_min" value="$$$upload_firstbyte_min$$$" size="5"/>  </label> how many milliseconds (minimum) delay before first byte uploaded<br/>
+        <label>upload_firstbyte_max : <input type="text" name="upload_firstbyte_max" value="$$$upload_firstbyte_max$$$" size="5"/>  </label> how many milliseconds (maximum) delay before first byte uploaded<br/>
+        <label>req_dropped : <input type="text" name="req_dropped" value="$$$req_dropped$$$" size="5"/>  </label> percent of http requests to drop completely on upload<br/>
+        <label>resp_dropped : <input type="text" name="resp_dropped" value="$$$resp_dropped$$$" size="5"/>  </label> percent of responses to drop on download<br/>
+        <label>req_partial : <input type="text" name="req_partial" value="$$$req_partial$$$" size="5"/>  </label> percent of http requests to send only partial data before dropping (at some random point)<br/>
+        <label>resp_partial : <input type="text" name="resp_partial" value="$$$resp_partial$$$" size="5"/>  </label> percent of http responses to receive only partial data before dropping (at some random point)<br/>
+        <label>coma_frequency : <input type="text" name="coma_frequency" value="$$$coma_frequency$$$" size="5"/>  </label> NYI how often (in seconds) to just go dead as if the user became unplugged and in a faraday cage<br/>
+        <label>coma_length : <input type="text" name="coma_length" value="$$$coma_length$$$" size="5"/>  </label> NYI how long (in seconds) to remain in a coma<br/>
+        <label>max_requests : <input type="text" name="max_requests" value="$$$max_requests$$$" size="5"/>  </label> NYI drop any new requests if there is already this many going on<br/>
+        <input name="submit" type="submit" value="Submit" />
+    </form>
+</div>
+<div id="no_settings" style="display:none;">
+    [<a href="javascript:void 0" onclick="show_settings()" style="text-decoration:none;">show settings</a>]<br/>
+</div>
+<div id="stats">CrappyNet statistics (updated <div id="updatetime"></div>):</div><br><br>
+<table>
+<tr><td>#Good Transactions:</td><td id="good_transactions">0</td></tr>
+<tr><td>Recent Good Transactions:</td><td id="recent_good_transactions">0</td><tr>
+<tr><td>#Dropped Requests:</td><td id="dropped_requests">0</td></tr>
+<tr><td>Recently Dropped Requests:</td><td id="recent_dropped_requests">0</td></tr>
+<tr><td>#Dropped Responses</td><td id="dropped_responses">0</td></tr>
+<tr><td>Recently Dropped Responses</td><td id="recent_dropped_responses">0</td></tr>
+<tr><td>#Partial Requests</td><td id="partial_requests">0</td></tr>
+<tr><td>Recent Partial Requests</td><td id="recent_partial_requests">0</td></tr>
+<tr><td>#Partial Responses</td><td id="partial_responses">0</td></tr>
+<tr><td>Recent Partial Responses</td><td id="recent_partial_responses">0</td></tr>
+<tr><td>#Unhandled Errors</td><td id="unhandled_errors">0</td></tr>
+<tr><td>Recent Unhandled Errors</td><td id="recent_unhandled_errors">0</td></tr>
+<tr><td>Current Connections</td><td id="connections">0</td></tr>
+</table>
+<script type="text/javascript" src="admin_console.js?source=admin_console_js"></script>
+</body>
+</html>
